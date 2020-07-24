@@ -1,3 +1,6 @@
+# Disclaimer
+This is not an officially supported Google product.
+
 # Summary
 This is a library for multi-dimensional arrays inspired by APL.
 
