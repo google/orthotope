@@ -8,12 +8,12 @@ This is not an officially supported Google product.
 
 This is a library for multi-dimensional arrays inspired by APL.
 
-## Multi-dimnsional array
+## Multi-dimensional arrays
 
-Each array has a number of elements of the same type, and a /shape/. The shape
+Each array has a number of elements of the same type, and a *shape*. The shape
 can be described by a list of integers that gices the size foir each of the
 dimensions. E.g. the array shape `[2,3]` is a 2x3 matrix, and the shape `[]` is
-a single value (a scalar). The number of dimensions is called the /rank/ of the
+a single value (a scalar). The number of dimensions is called the *rank* of the
 array.
 
 The shape may or may not be part of the type, depending on which version of the
