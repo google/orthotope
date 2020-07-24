@@ -1,10 +1,12 @@
-# Disclaimer
+# Orthotope
+
+## Disclaimer
 This is not an officially supported Google product.
 
-# Summary
+## Summary
 This is a library for multi-dimensional arrays inspired by APL.
 
-# Multi-dimnsional array
+## Multi-dimnsional array
 Each array has a number of elements of the same type, and a /shape/.
 The shape can be described by a list of integers that gices the size
 foir each of the dimensions.  E.g. the array shape `[2,3]` is a 2x3
@@ -15,11 +17,11 @@ The shape may or may not be part of the type, depending on which
 version of the API you use.
 
 
-# API variants
+## API variants
 The API comes in many variants, depending on how strongly typed it is
 and what the underlying storage is.
 
-## Types
+### Types
 
  * `Dynamic`, the shape is not part of the type, but is checked at
  runtime.  E.g., `Array Float` is an array of `Float` which can have
@@ -36,7 +38,7 @@ and what the underlying storage is.
 Converting between these types is cheap since they all share the same
 underlying representation.
 
-## Storage
+### Storage
 
 Each of the type variants has several storage variants, indicated by a
 suffix of the module names.
