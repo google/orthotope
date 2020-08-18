@@ -20,6 +20,7 @@
 {-# LANGUAGE KindSignatures #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE NoStarIsType #-}
+{-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -193,6 +194,18 @@ shapeT = shapeP (Proxy :: Proxy sh)
 {-# INLINE sizeT #-}
 sizeT :: forall sh . (Shape sh) => Int
 sizeT = sizeP (Proxy :: Proxy sh)
+
+-- | Turn a dynamic shape back into a type level shape.
+-- @withShape sh shapeP == sh@
+withShapeP :: [Int] -> (forall sh . (Shape sh) => Proxy sh -> r) -> r
+withShapeP [] f = f (Proxy :: Proxy ('[] :: [Nat]))
+withShapeP (n:ns) f =
+  case someNatVal (toInteger n) of
+    Just (SomeNat (_ :: Proxy n)) -> withShapeP ns (\ (_ :: Proxy ns) -> f (Proxy :: Proxy (n ': ns)))
+    _ -> error $ "withShape: bad size " ++ show n
+
+withShape :: [Int] -> (forall sh . (Shape sh) => r) -> r
+withShape sh f = withShapeP sh (\ (_ :: Proxy sh) -> f @sh)
 
 -----------------
 

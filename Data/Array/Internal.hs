@@ -35,8 +35,8 @@ import Data.Proxy
 import GHC.Exts(Constraint, build)
 import GHC.Generics(Generic)
 import GHC.TypeLits(KnownNat, natVal)
-import Text.PrettyPrint.Annotated
-import Text.PrettyPrint.Annotated.HughesPJClass
+import Text.PrettyPrint
+import Text.PrettyPrint.HughesPJClass
 
 {- HLINT ignore "Reduce duplication" -}
 
@@ -392,8 +392,8 @@ allSameT sh t@(T _ _ v)
 
 ppT
   :: (Vector v, VecElem v a, Pretty a)
-  => PrettyLevel -> ShapeL -> T v a -> Doc ann
-ppT l sh = vcat . map text .  box prettyBoxMode . ppT_ (prettyShowL l) sh
+  => PrettyLevel -> Rational -> ShapeL -> T v a -> Doc
+ppT l p sh = maybeParens (p > 10) . vcat . map text .  box prettyBoxMode . ppT_ (prettyShowL l) sh
 
 ppT_
   :: (Vector v, VecElem v a)

@@ -58,7 +58,7 @@ import GHC.Generics(Generic)
 import GHC.Stack(HasCallStack)
 import GHC.TypeLits(Nat, type (<=), KnownNat, type (+))
 import Test.QuickCheck hiding (generate)
-import Text.PrettyPrint.Annotated.HughesPJClass
+import Text.PrettyPrint.HughesPJClass
 
 import Data.Array.Internal
 import Data.Array.Internal.Shape
@@ -68,7 +68,8 @@ newtype Array (sh :: [Nat]) v a = A (T v a)
   deriving (Generic, Data)
 
 instance (Vector v, Show a, VecElem v a, Shape sh, Show (v a)) => Show (Array sh v a) where
-  show a@(A _) = "fromList @" ++ show (shapeL a) ++ " " ++ show (toList a)
+  showsPrec p a@(A _) = showParen (p > 10) $
+    showString "fromList @" . showsPrec 11 (shapeL a) . showString" " . showsPrec 11 (toList a)
 
 instance (Shape sh, Vector v, Read a, VecElem v a) => Read (Array sh v a) where
   readsPrec p = readParen (p > 10) $ \ r1 ->
@@ -88,7 +89,7 @@ instance (Vector v, Ord a, Ord (v a), VecElem v a, Shape sh)
   {-# INLINE compare #-}
 
 instance (Vector v, Pretty a, VecElem v a, Shape sh) => Pretty (Array sh v a) where
-  pPrintPrec l _ a@(A t) = ppT l (shapeL a) t
+  pPrintPrec l p a@(A t) = ppT l p (shapeL a) t
 
 instance (NFData (v a)) => NFData (Array sh v a) where
   rnf (A t) = rnf t

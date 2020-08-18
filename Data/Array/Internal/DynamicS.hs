@@ -54,7 +54,7 @@ import Foreign.Storable(sizeOf)
 import GHC.Generics(Generic)
 import GHC.Stack(HasCallStack)
 import Test.QuickCheck hiding (generate)
-import Text.PrettyPrint.Annotated.HughesPJClass hiding ((<>))
+import Text.PrettyPrint.HughesPJClass hiding ((<>))
 
 import qualified Data.Array.Internal.Dynamic as D
 import qualified Data.Array.Internal.DynamicG as G

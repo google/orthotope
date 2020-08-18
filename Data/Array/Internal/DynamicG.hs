@@ -49,7 +49,7 @@ import Data.List(sort)
 import GHC.Generics(Generic)
 import GHC.Stack
 import Test.QuickCheck hiding (generate)
-import Text.PrettyPrint.Annotated.HughesPJClass hiding ((<>))
+import Text.PrettyPrint.HughesPJClass hiding ((<>))
 
 import Data.Array.Internal
 
@@ -75,7 +75,7 @@ instance (Vector v, Ord a, Ord (v a), VecElem v a) => Ord (Array v a) where
   {-# INLINE compare #-}
 
 instance (Vector v, Pretty a, VecElem v a) => Pretty (Array v a) where
-  pPrintPrec l _ (A sh t) = ppT l sh t
+  pPrintPrec l p (A sh t) = ppT l p sh t
 
 instance (NFData (v a)) => NFData (Array v a)
 

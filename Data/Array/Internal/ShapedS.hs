@@ -56,7 +56,7 @@ import GHC.Generics(Generic)
 import GHC.TypeLits(KnownNat, type (+), type (<=))
 import GHC.Stack(HasCallStack)
 import Test.QuickCheck hiding (generate)
-import Text.PrettyPrint.Annotated.HughesPJClass hiding ((<>))
+import Text.PrettyPrint.HughesPJClass hiding ((<>))
 
 import Data.Array.Internal.DynamicS()  -- Vector instance
 import qualified Data.Array.Internal.Shaped as S

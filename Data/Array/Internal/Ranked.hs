@@ -60,7 +60,7 @@ import GHC.Generics(Generic)
 import Data.Array.Internal.Dynamic()  -- Vector instance
 import qualified Data.Array.Internal.RankedG as G
 import Data.Array.Internal(ShapeL, Vector(..))
-import Text.PrettyPrint.Annotated.HughesPJClass hiding ((<>))
+import Text.PrettyPrint.HughesPJClass hiding ((<>))
 
 newtype Array n a = A { unA :: G.Array n V.Vector a }
   deriving (Pretty, Generic, Data)

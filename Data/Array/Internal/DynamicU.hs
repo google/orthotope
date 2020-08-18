@@ -51,7 +51,7 @@ import qualified Data.Vector.Unboxed as V
 import GHC.Stack(HasCallStack)
 import Test.QuickCheck hiding (generate)
 import GHC.Generics(Generic)
-import Text.PrettyPrint.Annotated.HughesPJClass hiding ((<>))
+import Text.PrettyPrint.HughesPJClass hiding ((<>))
 
 import qualified Data.Array.Internal.Dynamic as D
 import qualified Data.Array.DynamicG as G

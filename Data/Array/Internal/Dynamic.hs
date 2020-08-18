@@ -49,7 +49,7 @@ import GHC.Generics(Generic)
 import qualified Data.Vector as V
 import GHC.Stack(HasCallStack)
 import Test.QuickCheck hiding (generate)
-import Text.PrettyPrint.Annotated.HughesPJClass hiding ((<>))
+import Text.PrettyPrint.HughesPJClass hiding ((<>))
 
 import qualified Data.Array.DynamicG as G
 import Data.Array.Internal(ShapeL, Vector(..), None)

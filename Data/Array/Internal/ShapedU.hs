@@ -55,7 +55,7 @@ import qualified Data.Vector.Unboxed as V
 import GHC.Generics(Generic)
 import GHC.TypeLits(KnownNat, type (+), type (<=))
 import Test.QuickCheck hiding (generate)
-import Text.PrettyPrint.Annotated.HughesPJClass hiding ((<>))
+import Text.PrettyPrint.HughesPJClass hiding ((<>))
 
 import Data.Array.Internal.DynamicU()  -- Vector instance
 import qualified Data.Array.Internal.ShapedG as G
