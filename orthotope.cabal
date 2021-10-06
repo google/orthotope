@@ -7,7 +7,7 @@ copyright:           2018 Google Inc
 category:            array
 maintainer:          lennart@augustsson.net
 description:         Multidimensional arrays inspired by APL.
-                     The library contains a wide variety of structurual
+                     The library contains a wide variety of structural
                      operations on arrays, but not actual algorithms.
 build-type:          Simple
 cabal-version:       >=1.10
