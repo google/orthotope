@@ -29,7 +29,6 @@
 {-# LANGUAGE UndecidableInstances #-}
 module Data.Array.Internal.RankedS(
   Array(..), Vector, ShapeL, Unbox,
-  toArrayG,
   size, shapeL, rank,
   toList, fromList, toVector, fromVector,
   normalize,
@@ -69,9 +68,6 @@ newtype Array n a = A { unA :: G.Array n V.Vector a }
   deriving (Pretty, Generic, Data)
 
 instance NFData a => NFData (Array n a)
-
-toArrayG :: Array r a -> G.Array r V.Vector a
-toArrayG = unA
 
 instance (Show a, Unbox a) => Show (Array n a) where
   showsPrec p = showsPrec p . unA

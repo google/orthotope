@@ -29,7 +29,6 @@
 module Data.Array.Internal.Shaped(
   Array(..), Shape(..), Size, Rank, Vector, ShapeL,
   Window, Stride, Permute, Permutation, ValidDims,
-  toArrayG,
   size, shapeL, rank,
   toList, fromList, toVector, fromVector,
   normalize,
@@ -66,9 +65,6 @@ newtype Array sh a = A { unA :: G.Array sh V.Vector a }
   deriving (Pretty, Generic, Data)
 
 instance NFData a => NFData (Array sh a)
-
-toArrayG :: Array sh a -> G.Array sh V.Vector a
-toArrayG = unA
 
 instance (Show a, Shape sh) => Show (Array sh a) where
   showsPrec p = showsPrec p . unA

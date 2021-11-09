@@ -23,7 +23,6 @@
 {-# LANGUAGE UndecidableInstances #-}
 module Data.Array.Internal.Dynamic(
   Array(..), Vector, ShapeL,
-  toArrayG,
   size, shapeL, rank,
   toList, fromList, toVector, fromVector,
   normalize,
@@ -108,9 +107,6 @@ newtype Array a = A { unA :: G.Array V.Vector a }
   deriving (Pretty, Generic, Data)
 
 instance NFData a => NFData (Array a)
-
-toArrayG :: Array a -> G.Array V.Vector a
-toArrayG = unA
 
 instance (Show a) => Show (Array a) where
   showsPrec p = showsPrec p . unA

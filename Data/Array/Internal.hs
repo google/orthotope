@@ -45,6 +45,8 @@ import Text.PrettyPrint.HughesPJClass
 -- constraint on the elements, which VecElem allows you to express.
 -- For vector types that don't need the constraint it can be set
 -- to some dummy class.
+-- | The 'Vector' class is the interface to the underlying storage for the arrays.
+-- The operations map straight to operations for 'Vector'.
 class Vector v where
   type VecElem v :: Type -> Constraint
   vIndex    :: (VecElem v a) => v a -> Int -> a
@@ -134,6 +136,7 @@ data T v a = T
 
 instance NFData (v a) => NFData (T v a)
 
+-- | The shape of an array is a list of its dimensions.
 type ShapeL = [Int]
 
 badShape :: ShapeL -> Bool
