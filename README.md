@@ -1,3 +1,5 @@
+# Clone augustss/orthtope instead.  This fork is not maintained.
+
 # Orthotope
 
 ## Disclaimer
