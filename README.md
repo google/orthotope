@@ -8,6 +8,9 @@ This is not an officially supported Google product.
 
 This is a library for multi-dimensional arrays inspired by APL.
 
+### See also
+The orthotope-hmatrix repo contains some more functionality.
+
 ## Multi-dimensional arrays
 
 Each array has a number of elements of the same type, and a *shape*. The shape
