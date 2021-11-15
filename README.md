@@ -1,4 +1,4 @@
-# Clone augustss/orthtope instead.  This fork is not maintained.
+# Clone augustss/orthotope instead.  This fork is not maintained.
 
 # Orthotope
 
